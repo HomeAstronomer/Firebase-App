@@ -30,7 +30,10 @@ class Adapter_RecyclerData(private val mList: List<Recycler_data>) : RecyclerVie
         holder.imageView.setImageResource(Recycler_data.imageId)
 
         // sets the text to the textview from our itemHolder class
-        holder.textView.text = Recycler_data.bus_name
+        holder.Bus_name.text = Recycler_data.Name
+        holder.Available_Seats.text=Recycler_data.avail_seats
+        holder.Timing.text=Recycler_data.Timing
+        holder.Bus_no.text=Recycler_data.Bus_No
 
     }
 
@@ -42,7 +45,11 @@ class Adapter_RecyclerData(private val mList: List<Recycler_data>) : RecyclerVie
     // Holds the views for adding it to image and text
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
         val imageView: ImageView = itemView.findViewById(R.id.imageView2)
-        val textView: TextView = itemView.findViewById(R.id.textView7)
+        val Bus_name: TextView = itemView.findViewById(R.id.BusName)
+        val Available_Seats:TextView=itemView.findViewById(R.id.SeatAvailability)
+        val Timing:TextView=itemView.findViewById(R.id.Time)
+        val Bus_no:TextView=itemView.findViewById(R.id.BusNo)
+
     }
 }
 

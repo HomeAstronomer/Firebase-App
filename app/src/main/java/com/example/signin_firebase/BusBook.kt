@@ -61,7 +61,7 @@ class BusBook : AppCompatActivity() {
             .addOnSuccessListener { document ->
                 if (document != null) {
                     Log.d(TAG, "DocumentSnapshot data: ${document.data}")
-                    var result= document.data?.get("Seat_status") as ArrayList<Int>
+                    var result= document.data?.get("Seat_Status") as ArrayList<Int>
                     book_stat= result?.toIntArray()!!
                     updateSeatColor()
                 } else {
@@ -86,7 +86,7 @@ class BusBook : AppCompatActivity() {
     }
 
     private fun set_seat_status(bookStat: IntArray) {
-        var user= hashMapOf("Seat_status" to bookStat.toCollection(ArrayList()))
+        var user= hashMapOf("Seat_Status" to bookStat.toCollection(ArrayList()))
         db.collection("Buses").document("MH43A9045").set(user).addOnSuccessListener {
             Log.d(TAG, "DocumentSnapshot successfully written!")
             Toast.makeText(this,"Updated scuccess fully",Toast.LENGTH_LONG).show()
@@ -94,6 +94,7 @@ class BusBook : AppCompatActivity() {
             .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e)
                 Toast.makeText(this,"Unsuccessful entry",Toast.LENGTH_LONG).show()}
     }
+
 
 
     private fun clicked(seatIcon: Int, i: Int) {

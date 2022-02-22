@@ -11,32 +11,40 @@
 
     <Button
         android:id="@+id/Sign_Out"
-        android:layout_width="122dp"
-        android:layout_height="37dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="100dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="5dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
         android:text="Sign Out"
+        android:textSize="8sp"
+        app:iconPadding="0dp"
         app:layout_constraintBottom_toTopOf="@+id/Login_page"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/Login_page"
-        android:layout_width="130dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="140dp"
-        android:layout_marginEnd="4dp"
+        android:layout_width="100dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="64dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
         android:text="Login Page"
+        android:textSize="8sp"
+        app:iconPadding="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/user_desc"
-        android:layout_width="63dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="92dp"
-        android:layout_marginEnd="212dp"
+        android:layout_width="253dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="16dp"
         android:text="TextView"
-        android:textColor="@color/white"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,16 +52,16 @@
         android:id="@+id/bus_MH43A"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="176dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="68dp"
         android:text="MH43A9045"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"
-        android:layout_width="match_parent"
-        android:layout_height="497dp"
+        android:layout_width="389dp"
+        android:layout_height="464dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -96,5 +104,18 @@
         app:layout_constraintEnd_toEndOf="@+id/toolbar"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <EditText
+        android:id="@+id/editTextTextMultiLine2"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:textSize="8sp"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_desc" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,8 +15,10 @@ import com.google.firebase.ktx.Firebase
 
 
 val db = Firebase.firestore
-class Landing_page : AppCompatActivity() {
+class Landing_page : AppCompatActivity() ,Adapter_RecyclerData.onNoteListener {
+    private lateinit var data: ArrayList<Recycler_data>
     private lateinit var firebase_data: MutableList<DocumentSnapshot>
+    var clickedRecycler: String? =null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,14 +61,14 @@ class Landing_page : AppCompatActivity() {
     private fun setRecycler() {
         val recyclerview = findViewById<RecyclerView>(R.id.recyclerview)
         recyclerview.layoutManager = LinearLayoutManager(this)
-        val data = ArrayList<Recycler_data>()
+        data = ArrayList<Recycler_data>()
         for (i in 0..firebase_data.size-1) {
 
             data.add(Recycler_data(R.drawable.logo,
                 firebase_data.get(i).get("Bus_Name").toString(),firebase_data.get(i).get("Timing").toString(),"10/10",firebase_data.get(i).get("Bus_No").toString()))
 
         }
-        val adapter = Adapter_RecyclerData(data)
+        val adapter = Adapter_RecyclerData(data,this)
         recyclerview.adapter = adapter
     }
 
@@ -76,5 +78,10 @@ class Landing_page : AppCompatActivity() {
             Toast.makeText(applicationContext,"you have signed out", Toast.LENGTH_LONG).show()
             findViewById<TextView>(R.id.user_desc).setText("User Signed out")
         }
+    }
+
+    override fun onNote(position: Int) {
+        clickedRecycler=data.get(position).Bus_No
+        Toast.makeText(applicationContext,"You have clicked"+clickedRecycler,Toast.LENGTH_LONG).show()
     }
 }

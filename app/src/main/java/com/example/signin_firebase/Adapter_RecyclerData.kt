@@ -9,7 +9,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class Adapter_RecyclerData(private val mList: List<Recycler_data>) : RecyclerView.Adapter<Adapter_RecyclerData.ViewHolder>() {
+class Adapter_RecyclerData(private val mList: List<Recycler_data>,onNoteListener: onNoteListener) : RecyclerView.Adapter<Adapter_RecyclerData.ViewHolder>() {
+    var mOnNoteListener=onNoteListener
 
     // create new views
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -18,7 +19,9 @@ class Adapter_RecyclerData(private val mList: List<Recycler_data>) : RecyclerVie
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.bus_layout, parent, false)
 
-        return ViewHolder(view)
+
+        return ViewHolder(view,mOnNoteListener)
+
     }
 
     // binds the list items to a view
@@ -43,13 +46,28 @@ class Adapter_RecyclerData(private val mList: List<Recycler_data>) : RecyclerVie
     }
 
     // Holds the views for adding it to image and text
-    class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
+    class ViewHolder(ItemView: View, var onNoteListener: onNoteListener) : RecyclerView.ViewHolder(ItemView) , View.OnClickListener{
+
         val imageView: ImageView = itemView.findViewById(R.id.imageView2)
         val Bus_name: TextView = itemView.findViewById(R.id.BusName)
         val Available_Seats:TextView=itemView.findViewById(R.id.SeatAvailability)
         val Timing:TextView=itemView.findViewById(R.id.Time)
         val Bus_no:TextView=itemView.findViewById(R.id.BusNo)
 
+
+        init {
+            itemView.setOnClickListener(this)
+            this.onNoteListener=onNoteListener
+
+        }
+        override fun onClick(p0: View?) {
+            onNoteListener.onNote(adapterPosition)
+        }
+
+
+    }
+    public interface onNoteListener{
+        fun  onNote(position: Int)
     }
 }
 

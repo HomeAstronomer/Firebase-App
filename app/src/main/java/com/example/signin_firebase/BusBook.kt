@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.firestore.SetOptions
 
 class BusBook : AppCompatActivity() {
 
@@ -87,7 +88,7 @@ class BusBook : AppCompatActivity() {
 
     private fun set_seat_status(bookStat: IntArray) {
         var user= hashMapOf("Seat_Status" to bookStat.toCollection(ArrayList()))
-        db.collection("Buses").document("MH43A9045").set(user).addOnSuccessListener {
+        db.collection("Buses").document("MH43A9045").set(user, SetOptions.merge()).addOnSuccessListener {
             Log.d(TAG, "DocumentSnapshot successfully written!")
             Toast.makeText(this,"Updated scuccess fully",Toast.LENGTH_LONG).show()
             updateSeatColor()}

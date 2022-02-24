@@ -5,6 +5,9 @@
     android:layout_width="match_parent"
     android:layout_marginLeft="0dp"
     android:layout_marginRight="0dp"
+    android:elevation="6dp"
+    app:cardElevation="6dp"
+    android:fadingEdge="horizontal"
     android:layout_height="wrap_content">
 
     <ImageView
@@ -69,4 +72,18 @@
         android:textColor="#000000"
         app:layout_constraintStart_toStartOf="@+id/BusName"
         app:layout_constraintTop_toBottomOf="@+id/BusName" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:barrierDirection="top"
+        tools:layout_editor_absoluteX="136dp"
+        tools:layout_editor_absoluteY="91dp" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:layout_width="10dp"
+        android:layout_height="5dp"
+        app:barrierDirection="bottom"
+        tools:layout_editor_absoluteX="123dp"
+        tools:layout_editor_absoluteY="4dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,7 +4,9 @@ import android.content.ContentValues
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.*
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -13,18 +15,18 @@ import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-
+public var clickedRecycler: String? =null
 val db = Firebase.firestore
-class Landing_page : AppCompatActivity() ,Adapter_RecyclerData.onNoteListener {
+open class Landing_page : AppCompatActivity() ,Adapter_RecyclerData.onNoteListener {
     private lateinit var data: ArrayList<Recycler_data>
     private lateinit var firebase_data: MutableList<DocumentSnapshot>
-    var clickedRecycler: String? =null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_landing_page)
 
-        findViewById<TextView>(R.id.user_desc).setText("Welcome \n"+user?.displayName)
+
 
         findViewById<Button>(R.id.Login_page).setOnClickListener{
             startActivity(Intent(this,MainActivity::class.java))
@@ -34,9 +36,7 @@ class Landing_page : AppCompatActivity() ,Adapter_RecyclerData.onNoteListener {
             signout()
         }
 
-        findViewById<Button>(R.id.bus_MH43A).setOnClickListener{
-            startActivity(Intent(this,BusBook::class.java))
-        }
+
         findViewById<ImageView>(R.id.back_img).setOnClickListener{
             startActivity(Intent(this,MainActivity::class.java))
         }
@@ -47,7 +47,7 @@ class Landing_page : AppCompatActivity() ,Adapter_RecyclerData.onNoteListener {
             if (document != null) {
 
                  firebase_data = document.documents
-                findViewById<EditText>(R.id.editTextTextMultiLine2).setText(""+firebase_data.get(0).get("Bus_Name") )
+
                 setRecycler()
 
             } else {
@@ -76,12 +76,13 @@ class Landing_page : AppCompatActivity() ,Adapter_RecyclerData.onNoteListener {
 
         AuthUI.getInstance().signOut(this).addOnCompleteListener {
             Toast.makeText(applicationContext,"you have signed out", Toast.LENGTH_LONG).show()
-            findViewById<TextView>(R.id.user_desc).setText("User Signed out")
+
         }
     }
 
     override fun onNote(position: Int) {
         clickedRecycler=data.get(position).Bus_No
         Toast.makeText(applicationContext,"You have clicked"+clickedRecycler,Toast.LENGTH_LONG).show()
+        startActivity(Intent(this,BusBook::class.java))
     }
 }

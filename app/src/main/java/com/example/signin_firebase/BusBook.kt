@@ -4,17 +4,14 @@ import android.content.ContentValues.TAG
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.SetOptions
 
 class BusBook : AppCompatActivity() {
 
 
-    var book_stat= intArrayOf(0,0,0,0,0,0,0,0,0,0)
+    public var book_stat= intArrayOf(0,0,0,0,0,0,0,0,0,0)
     //var changed_book_stat=intArrayOf(0,0,0,0,0,0,0,0,0,0)
     var book_stat_len=book_stat.size
     var available=book_stat_len
@@ -43,6 +40,7 @@ class BusBook : AppCompatActivity() {
         findViewById<Button>(R.id.book).setOnClickListener{set_seat_status(book_stat)}
         findViewById<TextView>(R.id.Booked_viewer).setText(""+booked)
         findViewById<TextView>(R.id.Available_viewer).setText(""+available)
+        findViewById<EditText>(R.id.editTextTextMultiLine).setText(clickedRecycler.toString())
 
 //        get_seat_status(book_stat)
 
@@ -57,7 +55,7 @@ class BusBook : AppCompatActivity() {
     }
 
     private fun get_seat_status() {
-        val docRef = db.collection("Buses").document("MH43A9045")
+        val docRef = db.collection("Buses").document(clickedRecycler.toString())
         docRef.get()
             .addOnSuccessListener { document ->
                 if (document != null) {
@@ -87,8 +85,9 @@ class BusBook : AppCompatActivity() {
     }
 
     private fun set_seat_status(bookStat: IntArray) {
+
         var user= hashMapOf("Seat_Status" to bookStat.toCollection(ArrayList()))
-        db.collection("Buses").document("MH43A9045").set(user, SetOptions.merge()).addOnSuccessListener {
+        db.collection("Buses").document(clickedRecycler.toString()).set(user, SetOptions.merge()).addOnSuccessListener {
             Log.d(TAG, "DocumentSnapshot successfully written!")
             Toast.makeText(this,"Updated scuccess fully",Toast.LENGTH_LONG).show()
             updateSeatColor()}

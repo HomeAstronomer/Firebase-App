@@ -3,87 +3,113 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_marginLeft="0dp"
-    android:layout_marginRight="0dp"
-    android:elevation="6dp"
-    app:cardElevation="6dp"
+    android:layout_height="90dp"
+    android:layout_marginLeft="2dp"
+    android:layout_marginRight="2dp"
+
     android:fadingEdge="horizontal"
-    android:layout_height="wrap_content">
+    android:layout_margin="2dp"
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="150dp"
-        android:layout_height="100dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/logo" />
+    android:requiresFadingEdge="horizontal"
 
-    <TextView
-        android:id="@+id/BusName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="168dp"
-        android:layout_marginTop="16dp"
-        android:background="#FFFFFF"
-        android:text="Bus Name"
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    app:cardElevation="6dp">
 
-    <TextView
-        android:id="@+id/Time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="28dp"
-        android:text="Timing"
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="@+id/BusName"
-        app:layout_constraintTop_toBottomOf="@+id/BusName" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="16dp"
-        android:text="Available Seats"
-        android:textColor="#000000"
-        app:layout_constraintStart_toEndOf="@+id/BusName"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/SeatAvailability"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="28dp"
-        android:text="0/0"
-        android:textColor="#000000"
-        app:layout_constraintStart_toEndOf="@+id/Time"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-    <TextView
-        android:id="@+id/BusNo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="BusNo"
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="@+id/BusName"
-        app:layout_constraintTop_toBottomOf="@+id/BusName" />
-
-    <androidx.constraintlayout.widget.Barrier
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:barrierDirection="top"
-        tools:layout_editor_absoluteX="136dp"
-        tools:layout_editor_absoluteY="91dp" />
+        android:layout_height="87dp"
 
-    <androidx.constraintlayout.widget.Barrier
-        android:layout_width="10dp"
-        android:layout_height="5dp"
-        app:barrierDirection="bottom"
-        tools:layout_editor_absoluteX="123dp"
-        tools:layout_editor_absoluteY="4dp" />
+        android:layout_margin="4dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="410dp"
+            android:layout_height="match_parent"
+
+            android:background="#F6F6F6"
+            android:requiresFadingEdge="vertical"
+
+            app:circularflow_radiusInDP="100">
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="68dp"
+                android:text="Available Seats"
+                android:textColor="#000000"
+                app:layout_constraintStart_toEndOf="@+id/BusName"
+                app:layout_constraintTop_toTopOf="@+id/BusName" />
+
+            <TextView
+                android:id="@+id/SeatAvailability"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="24dp"
+                android:text="0/0"
+                android:textColor="#000000"
+                app:layout_constraintStart_toStartOf="@+id/textView9"
+                app:layout_constraintTop_toTopOf="@+id/textView9" />
+
+            <TextView
+                android:id="@+id/BusName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="92dp"
+                android:layout_marginTop="6dp"
+                android:text="Bus Name"
+                android:textColor="#000000"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/BusNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:text="BusNo"
+                android:textColor="#000000"
+                app:layout_constraintStart_toStartOf="@+id/BusName"
+                app:layout_constraintTop_toBottomOf="@+id/BusName" />
+
+            <TextView
+                android:id="@+id/Time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="96dp"
+                android:layout_marginTop="4dp"
+                android:text="Timing"
+                android:textColor="#000000"
+                app:layout_constraintStart_toEndOf="@+id/BusNo"
+                app:layout_constraintTop_toBottomOf="@+id/SeatAvailability" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="2dp"
+
+                app:cardCornerRadius="100dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+
+                    android:background="@color/white"
+
+
+                    tools:srcCompat="@drawable/logo" />
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

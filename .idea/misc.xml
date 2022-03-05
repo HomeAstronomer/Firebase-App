@@ -3,9 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Atharva/AndroidStudio/Signin_firebase2/app/src/main/res/drawable/border.xml" value="0.197" />
+        <entry key="..\:/Atharva/AndroidStudio/Signin_firebase2/app/src/main/res/drawable/tranparent_border.xml" value="0.197" />
+        <entry key="..\:/Atharva/AndroidStudio/Signin_firebase2/app/src/main/res/drawable/transparent_bg_bordered.xml" value="0.197" />
+        <entry key="..\:/Atharva/AndroidStudio/Signin_firebase2/app/src/main/res/drawable/transparent_bg_bordered_button.xml" value="0.197" />
         <entry key="..\:/Atharva/AndroidStudio/Signin_firebase2/app/src/main/res/layout/activity_bus_book.xml" value="0.17481884057971014" />
         <entry key="..\:/Atharva/AndroidStudio/Signin_firebase2/app/src/main/res/layout/activity_landing_page.xml" value="0.14" />
+        <entry key="..\:/Atharva/AndroidStudio/Signin_firebase2/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Atharva/AndroidStudio/Signin_firebase2/app/src/main/res/layout/bus_layout.xml" value="0.47947761194029853" />
+        <entry key="..\:/Atharva/AndroidStudio/Signin_firebase2/app/src/main/res/layout/fragment_first.xml" value="0.17481884057971014" />
+        <entry key="..\:/Atharva/AndroidStudio/Signin_firebase2/app/src/main/res/layout/fragment_second.xml" value="0.17481884057971014" />
+        <entry key="..\:/Atharva/AndroidStudio/Signin_firebase2/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.197" />
+        <entry key="..\:/Atharva/AndroidStudio/Signin_firebase2/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.197" />
         <entry key="..\:/Users/Atharva Gorule/AndroidStudioProjects/Signin_firebase2/app/src/main/res/layout/activity_after_login.xml" value="0.25" />
         <entry key="..\:/Users/Atharva Gorule/AndroidStudioProjects/Signin_firebase2/app/src/main/res/layout/activity_bus_book.xml" value="0.25" />
         <entry key="..\:/Users/Atharva Gorule/AndroidStudioProjects/Signin_firebase2/app/src/main/res/layout/activity_bus_mh43.xml" value="0.292259083728278" />
